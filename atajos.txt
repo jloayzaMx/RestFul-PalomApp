@@ -1,0 +1,15 @@
+buscar por semana actual y cambiar el la fecha por dia de semana
+ALTER VIEW v_laboratorio AS 
+SELECT DATE_FORMAT(hor_ini,"%H:%i")as hor_ini,DATE_FORMAT(hor_fin,"%H:%i")as hor_fin,`estado`,(ELT(WEEKDAY(fecha) + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS fecha,`id_laboratorio` 
+FROM `disponibilidad` WHERE YEARweek(fecha) = YEARweek(CURRENT_date) 
+
+ALTER VIEW v_laboratorio AS 
+SELECT DATE_FORMAT(hor_ini,"%H:%i")as hor_ini,DATE_FORMAT(hor_fin,"%H:%i")as hor_fin,(ELT(estado,'DISPONIBLE','OCUPADO')) AS estado,(ELT(WEEKDAY(fecha) + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS fecha,`id_laboratorio` 
+FROM `disponibilidad` WHERE YEARweek(fecha) = YEARweek(CURRENT_date) 
+
+
+metodo get 
+http://localhost:3000/laboratorio
+
+git status
+git pull
