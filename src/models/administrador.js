@@ -1,9 +1,9 @@
 const mysql = require('mysql');
 connection = mysql.createConnection({
-host: 'localhost',
-user: 'root',
+host: 'sedipro-ucss.com',
+user: 'tawwwbus@localhost',
 password:'',
-database: 'sedipro_palomapp'
+database: 'tawwwbus_sedipro_palomapp'
 });
 
 let AdministradorModel ={}
