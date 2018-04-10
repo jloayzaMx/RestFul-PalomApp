@@ -10,7 +10,12 @@ app.set('port' , process.env.PORT || 3000);
 //middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 //routes
 require('./routes/administradorRoutes')(app);
 require('./routes/cafeteriaRoutes')(app);
