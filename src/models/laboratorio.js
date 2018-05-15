@@ -11,7 +11,7 @@ ssl: true
 let laboratorioModel ={}
 laboratorioModel.getLaboratorio=(callback)=>{
   if (pool) {
-    pool.query('SELECT * FROM v_laboratorio ',
+    pool.query('SELECT * FROM laboratorio ',
     (err,rows)=>{
       if (err) {
         throw err;
